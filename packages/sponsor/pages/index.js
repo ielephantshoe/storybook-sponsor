@@ -14,7 +14,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Sponsor Portal</h1>
-        <Button>I'm a button from the shared component library</Button>
+        <Button>I am a button from the shared component library</Button>
       </main>
 
       <footer className={styles.footer}>
