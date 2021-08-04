@@ -1,0 +1,46 @@
+{
+  "name": "@sponsorportal/components",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Mike Robinson <mike.robinson.81@gmail.com>",
+  "homepage": "https://github.com/Globacore/sponsorportal#readme",
+  "license": "UNLICENSED",
+  "source": "./src/index.js",
+  "main": "./dist/index.js",
+  "umd:main": "./dist/index.umd.js",
+  "module": "./dist/index.m.js",
+  "exports": "./dist/index.modern.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Globacore/sponsorportal.git"
+  },
+  "scripts": {
+    "dev": "microbundle --watch --jsx React.createElement",
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "bugs": {
+    "url": "https://github.com/Globacore/sponsorportal/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@storybook/addon-actions": "^6.3.6",
+    "@storybook/addon-essentials": "^6.3.6",
+    "@storybook/addon-links": "^6.3.6",
+    "@storybook/react": "^6.3.6",
+    "babel-loader": "^8.2.2",
+    "microbundle": "^0.13.3"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
