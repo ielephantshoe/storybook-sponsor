@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build Image
-        run: docker build -t sponsorportal/api -f packages/api/Dockerfile .
+        run: docker build -t sponsorportal-api -f packages/api/Dockerfile .
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
@@ -26,8 +26,7 @@ jobs:
         run: doctl registry login --expiry-seconds 600
 
       - name: Tag image
-        run: docker tag sponsorportal/api \
-          registry.digitalocean.com/globacore/sponsorportal-api:latest
+        run: docker tag sponsorportal-api registry.digitalocean.com/globacore/sponsorportal-api
 
       - name: Push image
-        run: docker push registry.digitalocean.com/globacore/sponsorportal-api:latest
+        run: docker push registry.digitalocean.com/globacore/sponsorportal-api
