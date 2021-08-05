@@ -1,0 +1,33 @@
+# Your workflow name.
+name: Release API
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - packages/api/**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Build Image
+        run: docker build -t sponsorportal/api -f packages/api/Dockerfile .
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+
+      - name: Log in to DO Container Registry
+        run: doctl registry login --expiry-seconds 600
+
+      - name: Tag image
+        run: docker tag sponsorportal/api \
+          registry.digitalocean.com/globacore/sponsorportal-api:latest
+
+      - name: Push image
+        run: docker push registry.digitalocean.com/globacore/sponsorportal-api:latest

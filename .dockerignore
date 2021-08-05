@@ -1,0 +1,8 @@
+**/README.MD
+**/.gitignore
+**/.env
+**/node_modules
+lerna.json
+/packages/admin
+/packages/components
+/packages/sponsor
