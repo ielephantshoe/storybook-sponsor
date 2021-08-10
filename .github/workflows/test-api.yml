@@ -1,0 +1,38 @@
+name: API Tests
+
+on:
+  push:
+    paths:
+      - packages/api/**
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres#schema=public
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js v14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+
+      - name: Install dependencies
+        run: yarn workspace @sponsorportal/api install
+
+      - name: Run tests
+        run: yarn workspace @sponsorportal/api test

@@ -4,7 +4,7 @@
   "description": "Sponsor Portal RESTful API",
   "main": "app.js",
   "scripts": {
-    "test": "tap \"test/**/*.test.js\"",
+    "test": "jest --passWithNoTests",
     "start": "fastify start -l info app.js",
     "dev": "fastify start -w -l info -P app.js"
   },
