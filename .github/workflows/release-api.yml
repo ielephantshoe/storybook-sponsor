@@ -31,3 +31,6 @@ jobs:
 
       - name: Push image
         run: docker push registry.digitalocean.com/globacore/sponsorportal-api
+
+      - name: Create staging deployment
+        run: doctl apps create-deployment ${{ secrets.DIGITALOCEAN_APP_ID_STAGING }}
