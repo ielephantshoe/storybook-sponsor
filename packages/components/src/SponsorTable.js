@@ -103,7 +103,7 @@ export default function SponsorTable({ form, ...props }) {
                     form.map((item, index) =>
                         <Box id={'sponsorT-table-row-entry'} key={index} sx={{ overflow: 'hidden' }}>
                             <Box id={'sponsorT-entry-small'} sx={{
-                                display: 'grid', gridTemplateColumns: ['24% 18% 25% 23%', '24% 13% 21% 19% 17%', '24% 13% 21% 19% 17%'], gridAutoFlow: 'column', padding: '0.5em', gap: 'min(0.5em,1vw)', border: '1px grey solid', alignItems: 'center', background: 'white', position: 'relative', zIndex: '1',
+                                display: 'grid', gridTemplateColumns: ['24% 18% 25% 23%', '24% 13% 21% 19% 17%', '24% 13% 21% 19% 17%'], gridAutoFlow: 'column', padding: '0.5em', gap: 'min(0.5em,1vw)', border: '1px grey solid', alignItems: 'center', background: 'white', position: 'relative', zIndex: '1',  cursor: 'pointer',
                                 '&:hover  #controls': {
                                     visibility: 'visible'
                                 }
