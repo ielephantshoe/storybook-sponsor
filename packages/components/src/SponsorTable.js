@@ -122,7 +122,7 @@ export default function SponsorTable({ form, ...props }) {
                                 </Box>
                             </Box>
                             {isOpen.includes(index) &&
-                                <Box id={'sponsorT-entry-enlgared'} sx={{ display: 'grid', padding: '0.5em', border: '1px grey solid', transition: 'ease-in 2s', position: 'relative', zIndex: '-1', animation: `${formInOut} 0.2s ease-in-out` }}>
+                                <Box id={'sponsorT-entry-enlgared'} sx={{ display: 'grid', padding: '0.5em', border: '1px grey solid', transition: 'ease-in 2s', position: 'relative', animation: `${formInOut} 0.2s ease-in-out` }}>
                                     <Box id={'row-enlarged-header'} sx={{ display: 'grid', gridAutoFlow: 'column', gridAutoColumns: '1fr', padding: '0.5em', border: '1px gray solid', background: 'white' }}>
                                         <Box id={'enlarged-addy'} sx={{ display: 'grid', alignItems: 'center' }}>
                                             <Text>123 Fake St</Text>
