@@ -1,9 +1,9 @@
-name: Admin Tests
+name: Sponsor Tests
 
 on:
   push:
     paths:
-      - packages/admin/**
+      - packages/sponsor/**
 
 jobs:
   test:
@@ -18,7 +18,7 @@ jobs:
           node-version: 14.x
 
       - name: Install dependencies
-        run: yarn workspace @sponsorportal/admin install
+        run: yarn workspace @sponsorportal/sponsor install
 
       - name: Run tests
-        run: yarn workspace @sponsorportal/admin test
+        run: yarn workspace @sponsorportal/sponsor test
