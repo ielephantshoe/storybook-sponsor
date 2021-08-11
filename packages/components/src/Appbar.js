@@ -13,3 +13,11 @@ export default function Appbar({ logo, children, ...props }) {
     </Box>
   )
 }
+
+Appbar.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
+  logo: PropTypes.string.isRequired,
+}

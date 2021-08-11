@@ -1,6 +1,7 @@
 import React from "react"
 import Link from 'next/link'
 import { Box } from 'theme-ui'
+import PropTypes from "prop-types"
 
 export default function Button({ children, href, onClick, variant, ...props }) {
   function createRipple(event) {

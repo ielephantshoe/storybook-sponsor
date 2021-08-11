@@ -3,8 +3,6 @@ import Appbar from '../Appbar';
 import Button from '../Button';
 import { Box, Heading } from 'theme-ui';
 
-
-
 export default {
   title: "UI Items/Header",
   component: Appbar,
