@@ -11,7 +11,7 @@ export default {
 const Template = (args) => <Appbar {...args} />;
 
 export const primary = () => (
-  <Appbar logo={'https://www.veeamsponsorships.com/veeamon/images/veeam-logo.png'}>
+  <Appbar logo={'https://picsum.photos/id/1/300/100'}>
     <Heading as='h1' sx={{ color: 'white', fontSize: ['1em', '1.5em', '1.75em'] }}>
       Admin
     </Heading>
