@@ -11,7 +11,7 @@ export default function Home() {
     </Box>
     <Box id={'controls-container'} sx={{ display: 'flex', justifyContent: 'space-between', color: 'white', alignItems:'center', paddingInline:'min(0.5em, 2vw)', gap: ['0.25em']}}>
       <Heading as='h1' sx={{ color: 'white', fontSize: ['1em','1.5em','1.75em']}}>
-        Admin
+      Sponsor Portal
       </Heading>
       <Box id={'nav-items-container'} sx={{ display: 'flex'}}>
         <Button>logout</Button>

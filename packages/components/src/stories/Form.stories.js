@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box } from 'theme-ui';
 import Button from '../Button';
-import { useForm } from "react-hook-form";
 import Form from '../Form';
 import FormElement from '../FormElement';
 

@@ -1,7 +1,5 @@
 import PropTypes from "prop-types"
 import { Box, Label, Input } from 'theme-ui'
-import { Controller } from "react-hook-form";
-
 export default function FormElement({ type, name, label, ...props }) {
     return (
       
