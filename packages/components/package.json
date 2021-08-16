@@ -25,7 +25,7 @@
     "postinstall": "yarn run build",
     "build": "microbundle --jsx React.createElement",
     "dev": "microbundle --watch --jsx React.createElement",
-    "test": "echo \"Error: run tests from root\" && exit 1",
+    "test": "jest --passWithNoTests",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -33,13 +33,17 @@
     "url": "https://github.com/Globacore/sponsorportal/issues"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.8",
+    "@babel/core": "^7.15.0",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/addon-links": "^6.3.6",
+    "@storybook/addon-storyshots": "^6.3.7",
     "@storybook/react": "^6.3.6",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
-    "microbundle": "^0.13.3"
+    "jest": "^27.0.6",
+    "microbundle": "^0.13.3",
+    "react-test-renderer": "^17.0.2"
   },
   "dependencies": {
     "react": "^17.0.2",
