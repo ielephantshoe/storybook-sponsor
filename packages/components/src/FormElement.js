@@ -18,7 +18,7 @@ export default function FormElement({ type, name, label, ...props }) {
 
         <Box sx={{ display: 'grid', gridAutoFlow: 'column', alignItems: 'center', gridTemplateColumns: '36% 64%' }}>
             <Label htmlFor={name}>{label}</Label>
-            <Input type={type} name={name} {...props} />
+            <Input type={type} name={name} id={name} {...props} />
         </Box>
     )
 }

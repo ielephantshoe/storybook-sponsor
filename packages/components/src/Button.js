@@ -94,7 +94,7 @@ Button.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
-  ]),
+  ]).isRequired,
   href: PropTypes.string,
   onClick: PropTypes.func,
   variant: PropTypes.string

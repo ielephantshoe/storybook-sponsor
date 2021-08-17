@@ -1,7 +1,5 @@
-import { toHaveStyle } from '@testing-library/jest-dom'
 import Button from '../src/Button'
 import { fireEvent, render, screen } from "@testing-library/react"
-import { Box } from '@theme-ui/components';
 import Form from '../src/Form';
 import FormElement from '../src/FormElement';
 
@@ -29,8 +27,23 @@ describe("Button Tests", () => {
         render(<Button>click me</Button>)
         expect(screen.getByRole('button')).toHaveStyle({ cursor: 'pointer' })
     });
+    
 })
 
+describe("Form Element Tests", () => {
+
+    it('Is Form Element rendering?', () => {
+        render(<FormElement type="text" name="test" label="test" />)
+        expect(screen.getByLabelText('test')).toBeVisible()
+        expect(screen.getByRole('textbox')).toBeVisible()
+    });
+
+    it('Is Form Element label assigned to input section?', () => {
+        render(<FormElement type="text" name="test" label="test" />)
+        expect(screen.getByLabelText('test')).toBeVisible()
+    });
+
+})
 
 describe("Form Tests", () => {
 
@@ -46,10 +59,8 @@ describe("Form Tests", () => {
         expect(handleSubmit).toHaveBeenCalledTimes(1)
     });
 
-    it('Is Form data acessable?', () => {
-
+    it('Is Form data accessible?', () => {
         const submitResults = jest.fn()
-
         render(
             <Form onSubmit={(data) => {
                 const submit = JSON.parse(data)
@@ -57,8 +68,8 @@ describe("Form Tests", () => {
             }}>
                 <FormElement type="bool" name="dataTest" Label="DataTest" defaultValue={true} />
                 <Button>Submit</Button>
-            </Form>)
-
+            </Form>
+        )
         fireEvent.click(screen.getByText(/Submit/i))
         expect(submitResults()).toBeTruthy()
     });
