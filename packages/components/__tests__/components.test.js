@@ -27,7 +27,7 @@ describe("Button Tests", () => {
         render(<Button>click me</Button>)
         expect(screen.getByRole('button')).toHaveStyle({ cursor: 'pointer' })
     });
-    
+
 })
 
 describe("Form Element Tests", () => {
@@ -40,7 +40,10 @@ describe("Form Element Tests", () => {
 
     it('Is Form Element label assigned to input section?', () => {
         render(<FormElement type="text" name="test" label="test" />)
-        expect(screen.getByLabelText('test')).toBeVisible()
+        screen.debug()
+        console.log(screen.getByLabelText('test'))
+        expect(screen.getByLabelText('test')).toBeValid()
+        
     });
 
 })
