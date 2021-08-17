@@ -40,10 +40,7 @@ describe("Form Element Tests", () => {
 
     it('Is Form Element label assigned to input section?', () => {
         render(<FormElement type="text" name="test" label="test" />)
-        screen.debug()
-        console.log(screen.getByLabelText('test'))
-        expect(screen.getByLabelText('test')).toBeValid()
-        
+        expect(screen.getByLabelText('test')).toBeValid()        
     });
 
 })
