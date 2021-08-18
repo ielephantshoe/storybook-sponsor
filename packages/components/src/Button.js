@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 import { Box } from 'theme-ui'
 import { keyframes } from '@emotion/react'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 
 const rippleEffect = keyframes`
 0% {
@@ -35,13 +35,13 @@ export default function Button({ children, href, onClick, variant, ...props }) {
 
   return (
     <Box
-      as="button"
-      className="ripple-button"
+      as='button'
+      className='ripple-button'
       sx={{
-        textTransform: "uppercase",
-        backgroundColor: "#272727",
+        textTransform: 'uppercase',
+        backgroundColor: '#272727',
         color: 'white',
-        boxShadow: "0 0 0.5rem rgba(0, 0, 0, 0.3)",
+        boxShadow: '0 0 0.5rem rgba(0, 0, 0, 0.3)',
         position: 'relative',
         overflow: 'hidden',
         cursor: 'pointer',
@@ -74,7 +74,7 @@ export default function Button({ children, href, onClick, variant, ...props }) {
       }}>
       {isRippling ? (
         <span
-          className="ripple"
+          className='ripple'
           style={{
             left: coords.x,
             top: coords.y

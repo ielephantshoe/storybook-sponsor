@@ -1,4 +1,4 @@
-import Button from "./Button"
+import Button from './Button'
 import { useState } from 'react'
 import { keyframes } from '@emotion/react'
 import { Box, Heading, Text, Input } from 'theme-ui'
@@ -24,7 +24,7 @@ export default function SponsorTable({ data, ...props }) {
     }
 
     const HandleFilterSearch = (i) => {
-        isFiltering ? setFilters(item => [...item, i]) : console.log('search not implemented')
+        isFiltering ? setFilters(item => [...item, i]) : console.log('search not implemented ' )
     }
 
     return (
@@ -34,11 +34,11 @@ export default function SponsorTable({ data, ...props }) {
 
             <Box id='sponsorT-header' sx={{ display: 'grid', gridAutoFlow: 'column', gridTemplateColumns: ['25% 75%', '36% 64%'], textAlign: 'center', alignItems: 'center' }}>
                 <Heading as='h3'>Sponsor List</Heading>
-                <Box as="form" aria-label="form" onSubmit={(e) => {
+                <Box as='form' aria-label='form' onSubmit={(e) => {
                     const formData = new FormData(e.currentTarget);
                     e.preventDefault();
                     e.currentTarget.reset()
-                    HandleFilterSearch(formData.get("filter"))
+                    HandleFilterSearch(formData.get('filter'))
                 }}
                     id={'sponsorT-toolbar'} sx={{ display: 'flex', justifyContent: 'end', gap: ['0.5em', '1em', '1em'] }}>
 
@@ -47,15 +47,15 @@ export default function SponsorTable({ data, ...props }) {
                     {(isSearching || isFiltering) ?
                         <>
                             <Box onClick={() => { toggleFiltering(false), toggleSearching(false) }} sx={{ height: '16px', width: '16px', display: 'flex', alignSelf: 'center', cursor: 'pointer' }}>
-                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+                                <svg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='times' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 512'><path fill='currentColor' d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z'></path></svg>
                             </Box>
-                            <Input name="filter" type='text' sx={{ width: 'auto', padding: 'unset' }} />
+                            <Input name='filter' type='text' sx={{ width: 'auto', padding: 'unset' }} />
                             <Button type='submit'>Enter</Button>
                         </>
                         :
                         <>
-                            <Button onClick={() => { toggleFiltering(!isFiltering) }}>Filter</Button>
-                            <Button onClick={() => { toggleSearching(!isSearching) }}>Search</Button>
+                            <Button type='button' onClick={() => { toggleFiltering(!isFiltering) }}>Filter</Button>
+                            <Button type='button' onClick={() => { toggleSearching(!isSearching) }}>Search</Button>
                         </>
                     }
 
@@ -84,10 +84,10 @@ export default function SponsorTable({ data, ...props }) {
                                 <Box id={'table-filter'} key={i} as='td' sx={{ background: '#C4C4C4', padding: '0.5em', fontSize: ['0.75em'], gap: '1em', display: 'flex', alignItems: 'center', borderRadius: '100px', textTransform: 'uppercase', cursor: 'pointer', '&:hover': { boxShadow: '0px 0px 1px 1px' } }}
                                     onClick={() => { setFilters(filters.filter(x => x != item)) }}>
                                     <Text>{item}</Text>
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="12" cy="12" r="11" fill="#C4C4C4" stroke="#606060" strokeWidth="2" />
-                                        <line x1="4.45711" y1="4.29289" x2="19.3063" y2="19.1421" stroke="#606060" strokeWidth="2" />
-                                        <line x1="4.54289" y1="19.1425" x2="19.3921" y2="4.29326" stroke="#606060" strokeWidth="2" />
+                                    <svg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                                        <circle cx='12' cy='12' r='11' fill='#C4C4C4' stroke='#606060' strokeWidth='2' />
+                                        <line x1='4.45711' y1='4.29289' x2='19.3063' y2='19.1421' stroke='#606060' strokeWidth='2' />
+                                        <line x1='4.54289' y1='19.1425' x2='19.3921' y2='4.29326' stroke='#606060' strokeWidth='2' />
                                     </svg>
                                 </Box>
                             )}
