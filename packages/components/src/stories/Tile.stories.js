@@ -1,13 +1,21 @@
 import React from 'react';
-import TileSelect from '../TileSelect';
-import { Box, Heading } from 'theme-ui';
+import { Box } from 'theme-ui';
+import Tile from '../Tile';
 
 export default {
-  title: "UI Items/TileSelect",
-  component: TileSelect,
+  title: "UI Items/Tile",
+  component: Tile,
 }
 
-const data = [
+const data =
+{
+  "name": "Sloganaut",
+  "levelCode": "#FF0",
+  "sponsors": 23,
+  "lastUpdated": "Last update 7 days ago"
+}
+
+const dataMany = [
   {
     "name": "Norali",
     "levelCode": "#CD7F32",
@@ -52,9 +60,20 @@ const data = [
   }
 ]
 
-const Template = (args) => <TileSelect {...args} />;
+const Template = (args) => <Tile {...args} />;
 
 export const Primary = Template.bind({})
 Primary.args = {
-  data: data,
+  name: data.name,
+  levelCode: data.levelCode,
+  sponsors: data.sponsors,
+  lastUpdated: data.lastUpdated,
 }
+
+export const UsageExample = () => (
+  <Box id='tile-container' sx={{ display: 'grid', gridTemplateColumns: ['1fr', 'repeat(3, 1fr)', 'repeat(4, 1fr)'], gridGap: ['20px', '30px', '30px'] }}>
+    {dataMany.map((item, index) =>
+      <Tile key={index} {...item} />
+    )}
+  </Box>
+)
