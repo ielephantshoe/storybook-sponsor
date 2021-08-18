@@ -18,7 +18,6 @@ Form.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.node,
         PropTypes.arrayOf(PropTypes.node),
-    ]),
-    logo: PropTypes.string,
+    ]).isRequired(),
     onSubmit: PropTypes.func
 }
