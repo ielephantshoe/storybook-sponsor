@@ -12,7 +12,8 @@ const data =
   "name": "Sloganaut",
   "levelCode": "#FF0",
   "sponsors": 23,
-  "lastUpdated": "Last update 7 days ago"
+  "lastUpdated": "Last update 7 days ago",
+  "href": "/test"
 }
 
 const dataMany = [
@@ -68,6 +69,7 @@ Primary.args = {
   levelCode: data.levelCode,
   sponsors: data.sponsors,
   lastUpdated: data.lastUpdated,
+  href: data.href
 }
 
 export const UsageExample = () => (

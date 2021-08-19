@@ -27,7 +27,7 @@ export default function Tile({ name, lastUpdated, sponsors, levelCode, href, ...
             </Box>
             <Box id='tile-info' sx={{ margin: '59px 0 0 30px;' }}>
                 <Heading as='h3' sx={{ fontSize: '1rem', fontWeight: 500, margin: '0 0 4px 0' }}>{name}</Heading>
-                <div class="last-update">{lastUpdated}</div>
+                <Box id="last-update">{lastUpdated}</Box>
             </Box>
         </Box>
     )

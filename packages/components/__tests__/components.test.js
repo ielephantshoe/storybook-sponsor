@@ -2,6 +2,7 @@ import Button from '../src/Button'
 import { fireEvent, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import Form from '../src/Form';
+import Tile from '../src/Tile';
 import FormElement from '../src/FormElement';
 import SponsorTable from '../src/SponsorTable';
 
@@ -10,7 +11,7 @@ describe('Button Tests', () => {
 
     it('Is Button rendering?', () => {
         render(<Button>click me</Button>)
-        expect(screen.getByText(/click me/i)).toBeVisible()
+        expect(screen.getByText(/click me/i)).toBeValid()
     });
 
     it('Is a Button?', () => {
@@ -36,8 +37,8 @@ describe('Form Element Tests', () => {
 
     it('Is Form Element rendering?', () => {
         render(<FormElement type='text' name='test' label='test' />)
-        expect(screen.getByLabelText('test')).toBeVisible()
-        expect(screen.getByRole('textbox')).toBeVisible()
+        expect(screen.getByLabelText('test')).toBeValid()
+        expect(screen.getByRole('textbox')).toBeValid()
     });
 
     it('Is Form Element label assigned to input section?', () => {
@@ -307,3 +308,33 @@ describe('Sponsor Table Tests', () => {
         expect(window.open).toHaveBeenCalled()
     });
 })
+
+describe('Tile Element Tests', () => {
+
+    const args = {
+      name: "Sloganaut",
+      levelCode: "#FF0",
+      sponsors: 23,
+      lastUpdated: "Last update 7 days ago",
+      href: "/test"
+    }
+
+    it('Is Tile element rendering?', () => {
+        render(<Tile {...args} />)
+        expect(screen.getByText(/Sloganaut/i)).toBeValid()
+        expect(screen.getByRole('link')).toBeValid()
+    });
+
+
+    it('Is Tile element clickable?', () => {
+        render(<Tile {...args} />)
+        const tile = screen.getByRole('link')
+        expect(tile).toHaveStyle({ cursor: 'pointer' })
+        expect(tile).toHaveAttribute('href', '/test')
+    })
+
+    it('Is Tile company name visable?', () => {
+        render(<Tile {...args} />)
+        expect(screen.getByRole('heading')).toBeValid()
+    })
+})  

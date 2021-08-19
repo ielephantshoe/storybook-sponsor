@@ -67,7 +67,7 @@ export const primary = () => (
                 </Box>
                 <Box sx={{ display: 'grid', gridAutoFlow: 'Row', gap: ['0.5em', '1em', '1em'], paddingBlock: ['0.5em', '1em', '1em'] }}>
                     {formData.map((item, index) =>
-                        Math.abs(index % 2) == 1 &&
+                        (index % 2 == 1) == 1 &&
                         <FormElement type={item.type} name={item.name} label={item.label} />
                     )}
                 </Box>
