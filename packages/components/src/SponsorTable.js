@@ -23,9 +23,26 @@ export default function SponsorTable({ data, ...props }) {
         isOpen.includes(i) ? openitem(isOpen.filter(item => item != i)) : openitem(item => [...item, i])
     }
 
-    const HandleFilterSearch = (i) => {
-        isFiltering ? setFilters(item => [...item, i]) : console.log('search not implemented ' )
+    const SimpleWeightFilter = (data, cols) => {
+        if (filters.length > 0) {
+            const sortedList = data
+                .map(r => {
+                    let score = 0
+                    cols.forEach(col => {
+                        filters.map(fil => r[`${col.key}`].match(new RegExp(fil, 'i')) ? score = score + col.weight : score += 0)
+                    })
+                    return { src: r, weight: score }
+                })
+                .sort((a, b) => {
+                    return a.weight < b.weight
+                }).map((r) => {
+                    return r.src
+                })
+            return sortedList
+        }
+        return data
     }
+
 
     return (
         <Box id='sponsor-table' sx={{ width: '100%', fontSize: ['0.75em', '1em', '1em'] }}>
@@ -38,13 +55,13 @@ export default function SponsorTable({ data, ...props }) {
                     const formData = new FormData(e.currentTarget);
                     e.preventDefault();
                     e.currentTarget.reset()
-                    HandleFilterSearch(formData.get('filter'))
+                    setFilters(item => [...item, formData.get('filter')])
                 }}
                     id={'sponsorT-toolbar'} sx={{ display: 'flex', justifyContent: 'end', gap: ['0.5em', '1em', '1em'] }}>
 
                     {/* if we're searching or filtering, show the input field and button , otherwise show the two buttons filter or search*/}
 
-                    {(isSearching || isFiltering) ?
+                    {isFiltering ?
                         <>
                             <Box onClick={() => { toggleFiltering(false), toggleSearching(false) }} sx={{ height: '16px', width: '16px', display: 'flex', alignSelf: 'center', cursor: 'pointer' }}>
                                 <svg aria-hidden='true' focusable='false' data-prefix='fas' data-icon='times' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 512'><path fill='currentColor' d='M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z'></path></svg>
@@ -55,7 +72,6 @@ export default function SponsorTable({ data, ...props }) {
                         :
                         <>
                             <Button type='button' onClick={() => { toggleFiltering(!isFiltering) }}>Filter</Button>
-                            <Button type='button' onClick={() => { toggleSearching(!isSearching) }}>Search</Button>
                         </>
                     }
 
@@ -96,8 +112,8 @@ export default function SponsorTable({ data, ...props }) {
 
                     {/* Mapping the Data onto the table*/}
 
-                    {
-                        data?.map((item, index) =>
+                    { data &&
+                        SimpleWeightFilter(data, [{ key: 'name', weight: 5 }, { key: 'level', weight: 3 }, { key: 'mainContact', weight: 3}]).map((item, index) =>
                             <Box id={'sponsorT-table-row-entry'} key={index} as='tr' sx={{ overflow: 'hidden', display: 'grid' }}>
 
                                 {/* Row Entry - Small (Just Row) */}
