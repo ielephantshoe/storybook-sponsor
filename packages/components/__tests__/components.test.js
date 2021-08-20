@@ -325,7 +325,6 @@ describe('Tile Element Tests', () => {
         expect(screen.getByRole('link')).toBeValid()
     });
 
-
     it('Is Tile element clickable?', () => {
         render(<Tile {...args} />)
         const tile = screen.getByRole('link')
