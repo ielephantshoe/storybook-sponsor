@@ -49,8 +49,7 @@ export default function SponsorTable({ data, ...props }) {
 
             {/* Head bar thats 25% / 75% of the screen. Left: Title, Right: Search, Filter Button and  input */}
 
-            <Box id='sponsorT-header' sx={{ display: 'grid', gridAutoFlow: 'column', gridTemplateColumns: ['25% 75%', '36% 64%'], textAlign: 'center', alignItems: 'center' }}>
-                <Heading as='h3'>Sponsor List</Heading>
+            <Box id='sponsorT-header'>
                 <Box as='form' aria-label='form' onSubmit={(e) => {
                     const formData = new FormData(e.currentTarget);
                     e.preventDefault();
@@ -72,6 +71,7 @@ export default function SponsorTable({ data, ...props }) {
                         :
                         <>
                             <Button type='button' onClick={() => { toggleFiltering(!isFiltering) }}>Filter</Button>
+                            <Button type='button' onClick={() => { console.log('not Implemented') }}>Create</Button>
                         </>
                     }
 
@@ -114,7 +114,7 @@ export default function SponsorTable({ data, ...props }) {
 
                     { data &&
                         SimpleWeightFilter(data, [{ key: 'name', weight: 5 }, { key: 'level', weight: 3 }, { key: 'mainContact', weight: 3}]).map((item, index) =>
-                            <Box id={'sponsorT-table-row-entry'} key={index} as='tr' sx={{ overflow: 'hidden', display: 'grid' }}>
+                            <Box id={'sponsorT-table-row-entry'} key={index} as='tr' sx={{ overflow: 'hidden', display: 'grid', background: 'white' }}>
 
                                 {/* Row Entry - Small (Just Row) */}
                                 <Box as='td' id={'sponsorT-entry-small'} sx={{
