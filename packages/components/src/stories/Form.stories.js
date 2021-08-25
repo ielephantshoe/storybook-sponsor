@@ -62,13 +62,13 @@ export const primary = () => (
                 <Box sx={{ display: 'grid', gridAutoFlow: 'Row', gap: ['0.5em', '1em', '1em'], paddingBlock: ['0.5em', '1em', '1em'] }}>
                     {formData.map((item, index) =>
                         !(index % 2 == 1) &&
-                        <FormElement {...item} />
+                        <FormElement {...item} key={index} />
                     )}
                 </Box>
                 <Box sx={{ display: 'grid', gridAutoFlow: 'Row', gap: ['0.5em', '1em', '1em'], paddingBlock: ['0.5em', '1em', '1em'] }}>
                     {formData.map((item, index) =>
                         (index % 2 == 1) == 1 &&
-                        <FormElement {...item} />
+                        <FormElement {...item} key={index} />
                     )}
                 </Box>
             </Box>
