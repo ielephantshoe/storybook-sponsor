@@ -47,6 +47,12 @@ export default function SponsorTable({ data, ...props }) {
     return (
         <Box id='sponsor-table' sx={{ width: '100%', fontSize: ['0.75em', '1em', '1em'] }}>
 
+            {/* floating add button */}
+
+            <Box as='a' sx={{ position: 'fixed', zIndex:2, width: '60px', height: '60px', color: 'white', background: '#4e73c2', borderRadius: '50%', boxShadow: '2px 2px 3px #999', bottom: '40px', right: '40px', display: 'flex', justifyContent: 'center', cursor: 'pointer' }}>
+                <svg width='20' aria-hidden="true" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+            </Box>
+
             {/* Head bar thats 25% / 75% of the screen. Left: Title, Right: Search, Filter Button and  input */}
 
             <Box id='sponsorT-header'>
@@ -56,7 +62,7 @@ export default function SponsorTable({ data, ...props }) {
                     e.currentTarget.reset()
                     setFilters(item => [...item, formData.get('filter')])
                 }}
-                    id={'sponsorT-toolbar'} sx={{ display: 'flex', justifyContent: 'end', gap: ['0.5em', '1em', '1em'] }}>
+                    id={'sponsorT-toolbar'} sx={{ display: 'flex', justifyContent: 'flex-end', gap: ['0.5em', '1em', '1em'] }}>
 
                     {/* if we're searching or filtering, show the input field and button , otherwise show the two buttons filter or search*/}
 
@@ -71,7 +77,6 @@ export default function SponsorTable({ data, ...props }) {
                         :
                         <>
                             <Button type='button' onClick={() => { toggleFiltering(!isFiltering) }}>Filter</Button>
-                            <Button type='button' onClick={() => { console.log('not Implemented') }}>Create</Button>
                         </>
                     }
 
