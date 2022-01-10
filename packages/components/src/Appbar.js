@@ -5,13 +5,13 @@ import { Box, Heading, Image, Text, MenuButton, Flex } from 'theme-ui'
 
 export default function Appbar({ logo, children, ...props }) {
 
-  const [isOpen, toggleOpen] = useState(true)
+  const [isOpen, toggleOpen] = useState(false)
 
   return (
     <>
       {isOpen && <Box sx={{ width: '100%', height: '100%', position: 'fixed', zIndex: '3', top: 0, left: 0, backgroundColor: 'rgba(0,0,0,0.2)', transition: '.8s ease' }} onClick={() => toggleOpen(false)}></Box>}
 
-      <Box id='appbar-container' as='header' sx={{ display: 'grid', borderBottom: '1px solid #f1f3f4', gridTemplateColumns: ['20% 75%', 'repeat(3, 1fr)', 'repeat(3, 1fr)'], paddingBlock: 'min(2em, 1vh)', paddingInline: 'min(0.5em, 2vw)', gap: 'min(2em, 5vw)' }}>
+      <Box id='appbar-container' as='header' sx={{ display: 'grid', borderBottom: '1px solid #f1f3f4', gridTemplateColumns: ['20% 75%', 'repeat(3, 1fr)', 'repeat(3, 1fr)'], paddingBlock: 'min(2em, 1vh)', paddingInline: 'min(0.5em, 2vw)', gap: 'min(2em, 5vw)', background: 'white' }}>
 
         <Box id='drawerNav' sx={{
           height: '100%', width: '320px', position: 'fixed', zIndex: '4', top: 0, left: isOpen ? '0px' : '-320px', backgroundColor: 'white', transition: '.8s ease', overflowX: 'hidden', display: 'flex', flexDirection: 'column', paddingInline: '2.75em', paddingTop: '3.5em'
@@ -27,7 +27,7 @@ export default function Appbar({ logo, children, ...props }) {
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={{ padding: '1em', borderRight: '1px solid #f1f3f4' }}>
-            <MenuButton aria-label="Toggle Menu" onClick={() => toggleOpen(!isOpen)} />
+            <MenuButton sx={{cursor: 'pointer'}} aria-label="Toggle Menu" onClick={() => toggleOpen(!isOpen)} />
           </Box>
         </Box>
 

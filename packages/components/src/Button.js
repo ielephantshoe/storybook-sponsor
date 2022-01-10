@@ -39,7 +39,7 @@ export default function Button({ children, href, onClick, variant, ...props }) {
       className='ripple-button'
       sx={{
         textTransform: 'uppercase',
-        backgroundColor: '#272727',
+        backgroundColor: '#4e73c2',
         color: 'white',
         boxShadow: '0 0 0.5rem rgba(0, 0, 0, 0.3)',
         position: 'relative',

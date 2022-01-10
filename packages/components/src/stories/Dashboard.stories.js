@@ -1,15 +1,18 @@
 
 import SampleDashboard from '../SampleDashboard';
 
+import IntelImage from './assets/intel.png'
+import AmdImage from './assets/amd.png'
+import GCImage from './assets/gc-dash.png'
 
 export default {
-  title: "Sample Page Idea/Dashboard",
+  title: "Sample Admin Pages/Admin Landing",
 }
 
 const dataMany = [
   {
     "name": "Norali",
-    "levelCode": "#CD7F32",
+    "iconImg": IntelImage,
     "level": "Poor Sponsor",
     "mainContact": "Bonita Prince",
     "sponsors": 66,
@@ -17,7 +20,7 @@ const dataMany = [
   },
   {
     "name": "Accel",
-    "levelCode": "#C0C0C0",
+    "iconImg": AmdImage,
     "level": "Silver Sponsor",
     "mainContact": "Name name2",
     "sponsors": 54,
@@ -25,7 +28,7 @@ const dataMany = [
   },
   {
     "name": "Gluid",
-    "levelCode": "#C0C0C0",
+    "iconImg": IntelImage,
     "level": "Silver Sponsor",
     "mainContact": "test Search",
     "sponsors": 65,
@@ -33,7 +36,7 @@ const dataMany = [
   },
   {
     "name": "Spherix",
-    "levelCode": "#FF0",
+    "iconImg": GCImage,
     "level": "Gold Sponsor",
     "mainContact": "test Search",
     "sponsors": 56,
@@ -41,7 +44,7 @@ const dataMany = [
   },
   {
     "name": "Marqet",
-    "levelCode": "#CD7F32",
+    "iconImg": GCImage,
     "level": "Poor Sponsor",
     "mainContact": "Richard Wanye",
     "sponsors": 49,
@@ -49,7 +52,7 @@ const dataMany = [
   },
   {
     "name": "Zytrek",
-    "levelCode": "#CD7F32",
+    "iconImg": AmdImage,
     "level": "Poor Sponsor",
     "mainContact": "Governor Cuomo",
     "sponsors": 27,
@@ -57,7 +60,7 @@ const dataMany = [
   },
   {
     "name": "Sloganaut",
-    "levelCode": "#FF0",
+    "iconImg": GCImage,
     "level": "Gold Sponsor",
     "mainContact": "Governor Cuomo",
     "sponsors": 23,
@@ -65,6 +68,6 @@ const dataMany = [
   }
 ]
 
-export const adminDashboard = () => (
+export const AdminLanding = () => (
   <SampleDashboard data={dataMany}></SampleDashboard>
 )

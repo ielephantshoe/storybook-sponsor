@@ -1,5 +1,4 @@
 import Head from "next/head"
-import { Button, Appbar } from "@sponsorportal/components"
 import styles from "../styles/Home.module.css"
 import { Box, Heading, Image } from "theme-ui"
 
@@ -14,7 +13,6 @@ export default function Home() {
       Sponsor Portal
       </Heading>
       <Box id={'nav-items-container'} sx={{ display: 'flex'}}>
-        <Button>logout</Button>
       </Box>
     </Box>
   </Box>
