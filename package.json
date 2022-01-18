@@ -1,7 +1,56 @@
 {
-  "name": "@sponsorportal/root",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ]
+  "name": "@sponsorportal/components",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Mike Robinson <mike.robinson.81@gmail.com>",
+  "homepage": "https://github.com/Globacore/sponsorportal#readme",
+  "license": "UNLICENSED",
+  "source": "./src/index.js",
+  "main": "./dist/index.js",
+  "umd:main": "./dist/index.umd.js",
+  "module": "./dist/index.m.js",
+  "exports": "./dist/index.modern.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Globacore/sponsorportal.git"
+  },
+  "scripts": {
+    "postinstall": "yarn run build",
+    "build": "microbundle --jsx React.createElement",
+    "dev": "microbundle --watch --jsx React.createElement",
+    "test": "jest",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "bugs": {
+    "url": "https://github.com/Globacore/sponsorportal/issues"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "babel-loader": "^8.2.2",
+    "microbundle": "^0.13.3",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@testing-library/dom": "^8.1.0",
+    "@types/jest": "^27.0.0",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "theme-ui": "^0.10.0"
+  }
 }
