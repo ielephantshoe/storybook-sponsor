@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Mike Robinson <mike.robinson.81@gmail.com>",
-  "homepage": "https://github.com/Globacore/sponsorportal#readme",
+  "homepage": "https://patnation.github.io/storybook-sponsor/",
   "license": "UNLICENSED",
   "source": "./src/index.js",
   "main": "./dist/index.js",
